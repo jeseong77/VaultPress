@@ -1,6 +1,6 @@
 # VaultPress - Obsidian 기반 정적 웹사이트 퍼블리셔
 
-[예시](https://www.jeseong.com)
+## [예시](https://www.jeseong.com)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
