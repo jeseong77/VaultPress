@@ -6,15 +6,14 @@
 
 ## 💡 주요 컨셉
 
-* **Obsidian 중심**: 사용자는 익숙한 Obsidian 환경에서 `vault/` 폴더 내의 콘텐츠를 관리합니다.
+* **Obsidian 중심**: Obsidian 환경에서 `vault/` 폴더 내의 콘텐츠를 관리합니다.
 * **정적 사이트 생성**: **Next.js**를 활용하여 빌드 시점에 최적화된 정적 페이지들을 생성합니다.
 * **간편한 설정 및 배포**: `site.config.js` 파일로 사이트의 주요 설정을 관리하며, Vercel/Netlify 등을 통해 GitHub Push 시 자동 배포가 가능합니다.
 
 ## 🛠️ 기술 스택
 
-* **프레임워크**: Next.js (v15.3.1, App Router)
+* **프레임워크**: Next.js (v15)
 * **언어**: TypeScript (v5)
-* **UI 라이브러리**: React (v19.0.0)
 * **스타일링**: Tailwind CSS (v4), CSS Variables (다크/라이트 모드 지원)
 * **Markdown 처리**:
     * `remark` (v15.0.1) / `rehype` (v11.1.2 for `remark-rehype`)
@@ -27,7 +26,7 @@
 * **상태 및 테마 관리**: React Context API, `next-themes` (v0.4.6)
 * **애니메이션**: `framer-motion` (v12.11.3)
 * **아이콘**: `react-ionicons` (v4.2.1)
-* **개발 도구**: ESLint (v9), Prettier (프로젝트에 설정된 경우)
+* **개발 도구**: ESLint (v9)
 
 ## ⚙️ 주요 기능 및 구현
 
