@@ -34,7 +34,4 @@ export type D3DragBehavior<E extends Element, D> = d3.DragBehavior<
   E,
   D,
   unknown
->; // Generalize drag behavior slightly
-
-// Removed D3Selection, D3RootSelection, D3NestedSelection to rely on inference
-// or more specific types directly in the hooks to resolve current errors.
+>;

@@ -23,27 +23,20 @@ const TreeItem: React.FC<TreeItemProps> = ({
 
   const indentStyle = { paddingLeft: `${node.depth * 0.75}rem` };
 
-  // getItemClasses는 이제 주로 배경색과 공통 레이아웃, 비활성 텍스트 색상을 담당
   const getCommonItemClasses = (active: boolean) => {
     let baseClasses =
       "flex items-center px-2 py-1 rounded transition-colors duration-150 ease-in-out w-full text-left";
     if (active) {
-      // 활성 상태: 배경색과 폰트 굵기만 여기서 처리
       return `${baseClasses} font-bold bg-[var(--accent-selected-bg)]`;
     } else {
-      // 비활성 상태: 기본 텍스트 색상 및 호버 효과
       return `${baseClasses} text-[var(--foreground)] hover:bg-[var(--accent-default-bg)] hover:text-[var(--accent-default-fg)]`;
     }
   };
 
-  // 텍스트 색상만 별도로 처리하는 함수 또는 조건부 클래스
   const getTextColorClasses = (active: boolean) => {
     if (active) {
-      return `!text-[var(--accent-selected-fg)]`; // 활성 텍스트 색상
+      return `!text-[var(--accent-selected-fg)]`;
     }
-    // 비활성 시에는 getCommonItemClasses 또는 Link의 기본 클래스에서 이미 처리됨
-    // (text-[var(--foreground)] hover:text-[var(--accent-default-fg)])
-    // 만약 Link 컴포넌트의 className에 직접 text-[var(--foreground)] 등을 넣어주려면 여기서 반환
     return `text-[var(--foreground)] hover:text-[var(--accent-default-fg)]`;
   };
 

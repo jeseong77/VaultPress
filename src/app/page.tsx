@@ -10,16 +10,13 @@ import { filenameToSlug, type TreeNode } from "../../lib/utils";
 import path from "path";
 import siteConfig from '../../site.config';
 
-// buildFileTree 함수 (수정된 버전)
 function buildFileTree(notes: { slug: string; title: string }[]): TreeNode[] {
   const tree: TreeNode[] = [];
   const map = new Map<string, TreeNode>();
 
   notes.forEach((noteInfo) => {
-    // noteInfo pertains to a specific FILE
-    const parts = noteInfo.slug.split("/"); // slug segments of the FILE path
+    const parts = noteInfo.slug.split("/");
 
-    // 1. Corrected calculation for display names of path segments for the current note.
     let pathPrefixForSegmentNameLookup = "";
     const originalPathSegmentsNames = parts.map((slugSegment) => {
       const cumulativeSlugForThisSegment = pathPrefixForSegmentNameLookup
@@ -31,17 +28,17 @@ function buildFileTree(notes: { slug: string; title: string }[]): TreeNode[] {
       const name = definingNote
         ? definingNote.title
         : slugSegment.replace(/-/g, " ");
-      pathPrefixForSegmentNameLookup = cumulativeSlugForThisSegment; // Update for next iteration of .map
+      pathPrefixForSegmentNameLookup = cumulativeSlugForThisSegment;
       return name;
     });
 
-    let currentProcessingPathSlug = ""; // The slug of the directory/file being processed in the inner loop
+    let currentProcessingPathSlug = "";
 
     for (let i = 0; i < parts.length; i++) {
-      const partSlugSegment = parts[i]; // The current slug segment, e.g., "arts", then "문학"
-      const partOriginalName = originalPathSegmentsNames[i]; // The display name for this segment
+      const partSlugSegment = parts[i];
+      const partOriginalName = originalPathSegmentsNames[i];
 
-      const parentPathForLinking = currentProcessingPathSlug; // Save parent path before updating currentProcessingPathSlug
+      const parentPathForLinking = currentProcessingPathSlug;
       currentProcessingPathSlug = currentProcessingPathSlug
         ? `${currentProcessingPathSlug}/${partSlugSegment}`
         : partSlugSegment;
@@ -49,8 +46,7 @@ function buildFileTree(notes: { slug: string; title: string }[]): TreeNode[] {
       let node = map.get(currentProcessingPathSlug);
 
       if (!node) {
-        // This path segment has not been seen before. Create a new node for it.
-        const isFileNode = i === parts.length - 1; // It's a file if it's the last segment of noteInfo.slug
+        const isFileNode = i === parts.length - 1;
         const nodeType = isFileNode ? "file" : "folder";
 
         node = {
@@ -155,7 +151,7 @@ export default async function HomePageWrapper({
       }
       requestedNoteId={requestedSlug}
       treeData={treeData}
-      notesMapByFullPathSlug={notesMapByFullPathSlug} // Props로 전달
+      notesMapByFullPathSlug={notesMapByFullPathSlug}
       notesMapBySimpleSlug={notesMapBySimpleSlug} 
     />
   );

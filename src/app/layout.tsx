@@ -1,9 +1,9 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css'; 
+import './globals.css';
 import { ThemeProvider } from '../../components/ThemeProvider';
-import siteConfig from '../../site.config'; 
+import siteConfig from '../../site.config';
 
 const inter = Inter({ subsets: ['latin'] });
 const ogImage = siteConfig.openGraph.images[0];
@@ -42,9 +42,7 @@ export const metadata: Metadata = {
     card: siteConfig.twitter.card as "summary" | "summary_large_image" | "app" | "player",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [twitterImageUrl], // twitterImageUrl은 문자열 URL
-    // siteConfig.twitter에 site/creator 속성이 존재하고 값이 있을 경우에만 추가
-    // TypeScript 오류를 피하려면 siteConfig.twitter 타입에 site?: string; creator?: string; 와 같이 optional로 정의되어야 함
+    images: [twitterImageUrl], 
     ...(siteConfig.twitter.site && { site: siteConfig.twitter.site }),
     ...(siteConfig.twitter.creator && { creator: siteConfig.twitter.creator }),
   },
@@ -52,13 +50,6 @@ export const metadata: Metadata = {
   // metadataBase 설정
   metadataBase: new URL(siteConfig.siteUrl),
 };
-
-// Viewport 설정 (선택 사항)
-// export const viewport: Viewport = {
-//   themeColor: 'black', // 또는 siteConfig에서 가져올 수 있음
-//   width: 'device-width',
-//   initialScale: 1,
-// };
 
 export default function RootLayout({
   children,
@@ -72,7 +63,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme={siteConfig.theme.defaultTheme}
           enableSystem
-        // disableTransitionOnChange // 필요시 주석 해제
         >
           {children}
         </ThemeProvider>

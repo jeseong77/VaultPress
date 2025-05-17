@@ -8,7 +8,7 @@ import type {
 } from "./graphTypes";
 
 interface UseNodeAutoCenterProps {
-  svgRef: RefObject<SVGSVGElement | null>; // ✨ Allow null in RefObject
+  svgRef: RefObject<SVGSVGElement | null>;
   zoomRef: RefObject<D3ZoomBehavior | null>;
   currentTransformRef: RefObject<D3ZoomTransform>;
   currentNodeId?: string | null;
@@ -26,11 +26,11 @@ export const useNodeAutoCenter = ({
 }: UseNodeAutoCenterProps): void => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      const svgElement = svgRef.current; // svgElement can be SVGSVGElement | null
+      const svgElement = svgRef.current;
       const zoomBehavior = zoomRef.current;
 
       if (
-        !svgElement || // Check if svgElement is null
+        !svgElement ||
         !zoomBehavior ||
         !currentNodeId ||
         graphData.nodes.length === 0 ||
@@ -40,7 +40,7 @@ export const useNodeAutoCenter = ({
         return;
       }
 
-      const svg = d3.select(svgElement); // svgElement is SVGSVGElement here
+      const svg = d3.select(svgElement);
       const currentTransform = currentTransformRef.current || d3.zoomIdentity;
 
       const targetNode = graphData.nodes.find(

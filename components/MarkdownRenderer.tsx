@@ -9,7 +9,7 @@ import remarkWikiLink from "remark-wiki-link";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-// 코드 하이라이팅 언어 등록 (변경 없음)
+// 코드 하이라이팅 언어
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
 import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
 import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
@@ -34,7 +34,7 @@ SyntaxHighlighter.registerLanguage("md", markdownLang);
 interface MarkdownRendererProps {
   markdownContent: string;
   wikiLinkOptions: any;
-  onLinkClick?: (targetNoteId: string) => void; // 타입 변경됨
+  onLinkClick?: (targetNoteId: string) => void;
 }
 
 interface CustomCodeProps {
@@ -48,7 +48,7 @@ interface CustomCodeProps {
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   markdownContent,
   wikiLinkOptions,
-  onLinkClick, // 이제 (targetNoteId: string) => void 타입의 함수
+  onLinkClick,
 }) => {
   const customMarkdownComponents: Components = {
     code({ node, inline, className, children, ...props }: CustomCodeProps) {
@@ -84,9 +84,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
             {...restProps}
             className={`internal-link ${anchorClassName || ""}`}
             onClick={() => {
-              // onClick 핸들러 수정
               if (onLinkClick) {
-                onLinkClick(targetNoteId); // 추출한 targetNoteId를 콜백으로 전달
+                onLinkClick(targetNoteId);
               }
             }}
           >
@@ -117,8 +116,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
 
   return (
     <div className="prose dark:prose-invert max-w-4xl">
-      {" "}
-      {/* MarkdownRenderer 내부의 max-width는 유지, HomePageClient에서 최종 너비 제어 */}
       <ReactMarkdown
         remarkPlugins={[
           remarkGfm,

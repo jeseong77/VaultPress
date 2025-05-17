@@ -63,11 +63,10 @@ export default function HomePageClient({
     stopLoading();
   }, [requestedNoteId, stopLoading]);
 
-  // 네비게이션 및 로딩 상태 처리를 위한 새로운 콜백
   const handleNavigate = useCallback(
     (targetNoteId: string) => {
       if (targetNoteId === requestedNoteId) {
-        // 이미 현재 보고 있는 노트인 경우, 로딩 스피너를 띄우지 않음
+        // 이미 현재 보고 있는 노트인 경우 로딩 스피너를 띄우지 않음
         if (isMobileSidebarOpen) {
           setIsMobileSidebarOpen(false);
         }
