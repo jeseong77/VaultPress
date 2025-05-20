@@ -1,53 +1,51 @@
-/* app/globals.css */
-@import "tailwindcss"; /* Tailwind CSS v4+ 임포트 */
+@import "tailwindcss"; /* Tailwind CSS v4 사용, tailwin config 더 이상 사용 X */
 
 /* ==========================================================================
    1. CSS 변수 정의 (Material Design 3 )
    ========================================================================== */
 /* 1. RIDIBatang 폰트 정의 */
 @font-face {
-  font-family: "RIDIBatang"; /* 폰트 이름 정의 */
-  src: url("/assets/fonts/RIDIBatang.otf") format("opentype"); /* public 폴더 기준 경로 */
-  font-weight: normal; /* 기본 폰트 두께 */
-  font-style: normal; /* 기본 폰트 스타일 */
+  font-family: "RIDIBatang"; /* 가독성을 위해 리디 바탕 사용 */
+  src: url("/assets/fonts/RIDIBatang.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
   /* ---------------- Material Design 3 - Light Theme ----------------- */
   --primary-light: #626f47; /* 어두운 올리브 그린 */
   --on-primary-light: #ffffff;
-  --primary-container-light: #e8f5ce; /* Primary에서 파생된 밝은 톤 */
-  --on-primary-container-light: #1e2d0b; /* Primary Container 위의 어두운 텍스트 */
+  --primary-container-light: #e8f5ce;
+  --on-primary-container-light: #1e2d0b;
 
   --secondary-light: #a4b465; /* 밝은 올리브 그린 */
-  --on-secondary-light: #1e2d0b; /* Secondary 위의 어두운 텍스트 (명도 대비 고려) */
-  --secondary-container-light: #ecfdd0; /* Secondary에서 파생된 밝은 톤 */
+  --on-secondary-light: #1e2d0b;
+  --secondary-container-light: #ecfdd0; 
   --on-secondary-container-light: #2a3a0f;
 
   --tertiary-light: #f0bb78; /* 연한 주황/살구색 */
   --on-tertiary-light: #3e2e1b; /* Tertiary 위의 어두운 텍스트 */
-  --tertiary-container-light: #ffeacc; /* Tertiary에서 파생된 밝은 톤 */
+  --tertiary-container-light: #ffeacc; /* Tertiary에서 좀 더 밝은 톤 */
   --on-tertiary-container-light: #4f3a1a;
 
-  --error-light: #ba1a1a; /* 기존 유지 또는 새 팔레트에 맞게 조정 */
+  --error-light: #ba1a1a;
   --on-error-light: #ffffff;
   --error-container-light: #ffdad6;
   --on-error-container-light: #93000a;
 
-  --light-background-light: #f5ecd5; /* 매우 밝은 베이지/크림색 - 배경 */
-  --on-background-light: #201b12; /* 배경 위의 어두운 텍스트 */
+  --light-background-light: #f5ecd5;
+  --on-background-light: #201b12;
 
-  --surface-light: #f5ecd5; /* 배경과 동일하게 시작 */
+  --surface-light: #f5ecd5;
   --on-surface-light: #201b12;
 
-  /* Surface 계열은 --light-background-light (#F5ECD5)를 기준으로 미세 조정 */
-  --surface-variant-light: #e7e0d3; /* #F5ECD5 보다 약간 어둡거나 다른 톤 */
+  --surface-variant-light: #e7e0d3;
   --on-surface-variant-light: #49453d;
 
   --surface-tint-light: var(--primary-light);
-  --inverse-surface-light: #353026; /* --on-background-light 와 유사한 어두운 톤 */
-  --inverse-on-surface-light: #f8f0e3; /* --light-background-light 와 유사한 밝은 톤 */
-  --inverse-primary-light: #cdeaa6; /* Primary의 다크모드 버전 유사 색상 */
+  --inverse-surface-light: #353026;
+  --inverse-on-surface-light: #f8f0e3;
+  --inverse-primary-light: #cdeaa6;
 
   --outline-light: #7a756b;
   --outline-variant-light: #cbc5b8;
@@ -55,7 +53,6 @@
   --shadow-light: #000000;
   --scrim-light: #000000;
 
-  /* Surface Container 계열은 --surface-light (#F5ECD5) 를 기준으로 명도 조절 */
   --surface-dim-light: #dbd5c9;
   --surface-bright-light: #fdf8f0; /* --surface-light 보다 약간 밝게 */
   --surface-container-lowest-light: #ffffff; /* 가장 밝음 */
@@ -64,7 +61,7 @@
   --surface-container-high-light: #ebe7dd; /* #F5ECD5 보다 약간 어두움 */
   --surface-container-highest-light: #e5e1d7; /* #F5ECD5 보다 좀 더 어두움 */
 
-  /* ---------------- 시멘틱 변수 (라이트 모드) - 간결한 MD3 역할에 매핑 ----------------- */
+  /* ---------------- 시멘틱 변수 (라이트 모드) ----------------- */
   --background: var(--light-background-light);
   --foreground: var(--on-background-light);
   --foreground-muted: var(--on-surface-variant-light);
@@ -78,7 +75,7 @@
 
   --accent-selected-bg: var(
     --secondary-container-light
-  ); /* ✨ 변경: Secondary Container 사용 */
+  );
   --accent-selected-fg: var(--on-secondary-container-light);
 
   --accent-default-node-bg: var(--surface-container-highest-light);
@@ -87,7 +84,7 @@
   --accent-selected-node-text: var(--on-primary-container-light);
 
   --link-color: var(--primary-light);
-  --link-color-hover: var(--primary-light); /* 호버 시에도 동일 Primary */
+  --link-color-hover: var(--primary-light);
 
   --code-background: var(--surface-container-highest-light);
   --inline-code-background: var(--surface-variant-light);
@@ -99,52 +96,51 @@
   --search-input-background: var(--surface-container-highest-light);
   --search-input-text-color: var(
     --on-surface-light
-  ); /* 혹은 var(--foreground) */
+  );
   --search-input-placeholder-color: var(
     --on-surface-variant-light
-  ); /* 혹은 var(--foreground-muted) */
+  );
   --search-input-icon-color: var(
     --on-surface-variant-light
-  ); /* 혹은 var(--foreground-muted) */
+  );
   --search-input-focus-ring-color: var(--primary-light);
 }
 
 .dark:root {
   /* ---------------- Material Design 3 - Dark Theme ----------------- */
-  --primary-dark: #c1d39f; /* #626F47 (Primary Light)에서 파생된 밝은 톤 */
-  --on-primary-dark: #32401d; /* Primary Dark 위의 어두운 텍스트 */
-  --primary-container-dark: #495733; /* Primary Dark보다 어두운 컨테이너 */
-  --on-primary-container-dark: #e8f5ce; /* Primary Container Dark 위의 밝은 텍스트 */
+  --primary-dark: #c1d39f;
+  --on-primary-dark: #32401d;
+  --primary-container-dark: #495733;
+  --on-primary-container-dark: #e8f5ce;
 
-  --secondary-dark: #d0e09a; /* #A4B465 (Secondary Light)에서 파생된 밝은 톤 */
+  --secondary-dark: #d0e09a;
   --on-secondary-dark: #3a4a1f;
   --secondary-container-dark: #516135;
   --on-secondary-container-dark: #ecfdd0;
 
-  --tertiary-dark: #ffddaa; /* #F0BB78 (Tertiary Light)에서 파생된 밝은 톤 */
+  --tertiary-dark: #ffddaa;
   --on-tertiary-dark: #5f4a2a;
   --tertiary-container-dark: #7c6140;
   --on-tertiary-container-dark: #ffeacc;
 
-  --error-dark: #ffb4ab; /* 기존 유지 또는 새 팔레트에 맞게 조정 */
+  --error-dark: #ffb4ab;
   --on-error-dark: #690005;
   --error-container-dark: #93000a;
   --on-error-container-dark: #ffdad6;
 
-  /* 어두운 배경은 #1C1B1F 와 같은 매우 어두운 색을 추천, 여기서는 #201B12 로 설정 */
-  --background-dark: #201b12; /* #F5ECD5 (Light Background)의 명도 반전 유사 */
-  --on-background-dark: #eae1d6; /* 배경 위의 밝은 텍스트 */
+  --background-dark: #201b12;
+  --on-background-dark: #eae1d6;
 
   --surface-dark: #201b12;
   --on-surface-dark: #eae1d6;
 
-  --surface-variant-dark: #49453d; /* 라이트 모드의 --on-surface-variant-light 와 유사하게 시작 */
+  --surface-variant-dark: #49453d;
   --on-surface-variant-dark: #cbc5b8;
 
   --surface-tint-dark: var(--primary-dark);
   --inverse-surface-dark: #eae1d6;
   --inverse-on-surface-dark: #353026;
-  --inverse-primary-dark: var(--primary-light); /* #626F47 */
+  --inverse-primary-dark: var(--primary-light);
 
   --outline-dark: #958f83;
   --outline-variant-dark: #49453d;
@@ -152,7 +148,6 @@
   --shadow-dark: #000000;
   --scrim-dark: #000000;
 
-  /* Surface Container 계열은 --surface-dark (#201B12) 를 기준으로 명도 조절 */
   --surface-dim-dark: #17150f; /* --surface-dark 보다 어둡게 */
   --surface-bright-dark: #3d3a30; /* --surface-dark 보다 밝게 */
   --surface-container-lowest-dark: #12100a; /* 가장 어두움 */
@@ -170,8 +165,8 @@
   --outer-background: var(--surface-dim-dark);
   --border-color: var(--outline-variant-dark);
 
-  --accent-selected-bg: var(--secondary-container-dark); /* ✨ 변경 */
-  --accent-selected-fg: var(--on-secondary-container-dark); /* ✨ 변경 */
+  --accent-selected-bg: var(--secondary-container-dark);
+  --accent-selected-fg: var(--on-secondary-container-dark);
 
   --accent-selected-bg: var(--primary-dark);
   --accent-selected-fg: var(--on-primary-dark);
@@ -188,24 +183,22 @@
   --inline-code-background: var(--surface-variant-dark);
   --inline-code-foreground: var(--on-surface-variant-dark);
 
-  /* ✨ 검색창 관련 시멘틱 변수 (다크 모드) */
   --search-input-background: var(--surface-container-highest-dark);
   --search-input-text-color: var(
     --on-surface-dark
-  ); /* 혹은 var(--foreground) */
+  );
   --search-input-placeholder-color: var(
     --on-surface-variant-dark
-  ); /* 혹은 var(--foreground-muted) */
+  );
   --search-input-icon-color: var(
     --on-surface-variant-dark
-  ); /* 혹은 var(--foreground-muted) */
+  );
   --search-input-focus-ring-color: var(--primary-dark);
 }
-
+/* ------------------- 색상 팔레트 ------------------- */
 /* ==========================================================================
-   2. 기본 스타일 (Body, 기본 태그)
+   2. Tailwind CSS 설정
    ========================================================================== */
-
 body {
   background-color: var(--outer-background);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -227,13 +220,8 @@ a:hover,
   text-decoration: underline;
   color: var(--link-color-hover);
 }
-/* app/globals.css */
-/* ... (이 파일의 다른 부분, 예를 들어 @font-face, :root 변수, body 스타일 등은 이전과 동일하게 유지합니다) ... */
 
-/* ==========================================================================
-   3. Tailwind Typography (@tailwindcss/typography) 오버라이드 (.prose)
-   ========================================================================== */
-
+/* --- 기본 텍스트 스타일 --- */
 .prose {
   font-family: "RIDIBatang", Georgia, Cambria, "Times New Roman", Times, serif;
   color: var(--foreground);
@@ -281,11 +269,11 @@ a:hover,
   color: var(--link-color-hover);
 }
 
-/* --- Prose: 목록 (ul, ol, li) --- 최종 수정된 부분 --- */
+/* --- Prose: 목록 (ul, ol, li) --- */
 .prose ul,
 .prose ol {
-  list-style-position: outside; /* 마커를 텍스트 바깥쪽에 위치 */
-  padding-left: 1.75em; /* 마커가 표시될 공간 (조절 가능) */
+  list-style-position: outside;
+  padding-left: 1.75em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -321,7 +309,7 @@ a:hover,
 .prose ol ol {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  padding-left: 1.75em; /* 중첩 목록 들여쓰기 */
+  padding-left: 1.75em;
 }
 
 .prose ul ul {
@@ -331,7 +319,7 @@ a:hover,
   list-style-type: square; /* 3단계 ul: 채워진 사각형 */
 }
 .prose ul ul ul ul {
-  /* 4단계 ul: 필요시 추가 (예: 다시 disc 또는 다른 형태) */
+  /* 4단계 ul: 다시 disc */
   list-style-type: disc;
 }
 
@@ -358,18 +346,16 @@ a:hover,
 /* --- 목록 스타일 수정 끝 --- */
 
 /* --- Prose: 작업 목록 (Task List) --- */
-.prose ul > li.task-list-item, /* Ensure specificity or that general ul/li rules don't break this */
+.prose ul > li.task-list-item,
   .prose ol > li.task-list-item {
-  list-style-type: none !important; /* !important to ensure it overrides general ul/li if needed */
-  padding-left: 0.25em; /* Adjust as needed for checkbox alignment */
-  /* Other task list item specific styles */
+  list-style-type: none !important;
+  padding-left: 0.25em;
 }
 .prose li > input[type="checkbox"] {
-  /* This selector is fine */
   @apply mr-2 align-middle cursor-default;
   width: 1.1em;
   height: 1.1em;
-  margin-top: 0.15em; /* This might need adjustment based on line-height */
+  margin-top: 0.15em;
   accent-color: var(--primary-light);
 }
 .dark .prose li > input[type="checkbox"] {
@@ -403,18 +389,17 @@ a:hover,
   display: inline;
   font-family: "fontFamily.mono", "ui-monospace", "SFMono-Regular", "Menlo",
     "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
-  @apply text-sm; /* 코드 블록과 동일한 폰트 크기 */
+  @apply text-sm;
 
-  background-color: var(--code-background); /* 코드 블록과 동일한 배경색 사용 */
+  background-color: var(--code-background);
   color: var(--inline-code-foreground);
 
-  padding: 0.2em 0.4em; /* 안쪽 여백 조절 (기존 값 유지 또는 미세 조정) */
-  border-radius: 0.25em; /* 약간의 둥근 모서리 (예: 3px 또는 4px 정도의 느낌) */
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
 }
 
-/* ==========================================================================
-   4. 컴포넌트별 전역 스타일
-   ========================================================================== */
+/* --- Prose: 인라인 코드 스타일 수정 끝 --- */
+
 
 .note-graph-container svg {
   transition: background-color 150ms ease-in-out;
@@ -428,7 +413,3 @@ a:hover,
 .note-graph-container .nodes text {
   transition: fill 150ms ease-in-out;
 }
-
-/* ==========================================================================
-   5. 유틸리티 클래스 오버라이드 또는 커스텀 유틸리티 (필요시)
-   ========================================================================== */
