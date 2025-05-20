@@ -135,7 +135,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     );
   }
 
-  // 마크다운 콘텐츠가 비어있지 않은 경우
   // ReactMarkdown을 사용하여 마크다운 콘텐츠를 렌더링
   return (
     <div className="prose dark:prose-invert max-w-4xl">
