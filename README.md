@@ -2,15 +2,15 @@
 
 ### [Example](https://www.jeseong.com)
 
-**VaultPress**는 [Obsidian](https://obsidian.md/)의 Markdown 노트(Vault)들을 활용하여 빠르게 정적 웹사이트를 구축하는 솔루션입니다. 개인 지식 베이스, 기술 블로그, 디지털 정원 등을 손쉽게 웹으로 발행하고 공유할 수 있도록 지원합니다.
+**VaultPress**는 [Obsidian](https://obsidian.md/)의 Markdown 노트(Vault)들을 활용하여 빠르게 정적 웹사이트를 구축하는 솔루션입니다. 개인 블로그, 노트 등을 손쉽게 웹으로 발행하고 공유할 수 있도록 지원합니다.
 
-## 💡 주요 컨셉
+## 코어
 
 * **Obsidian 중심**: Obsidian 환경에서 `vault/` 폴더 내의 콘텐츠를 관리합니다.
 * **정적 사이트 생성**: **Next.js**를 활용하여 빌드 시점에 최적화된 정적 페이지들을 생성합니다.
 * **간편한 설정 및 배포**: `site.config.js` 파일로 사이트의 주요 설정을 관리하며, Vercel/Netlify 등을 통해 GitHub Push 시 자동 배포가 가능합니다.
 
-## 🛠️ 기술 스택
+## 기술 스택
 
 * **프레임워크**: Next.js (v15)
 * **언어**: TypeScript (v5)
@@ -28,7 +28,7 @@
 * **아이콘**: `react-ionicons` (v4.2.1)
 * **개발 도구**: ESLint (v9)
 
-## ⚙️ 주요 기능 및 구현
+## 주요 기능 및 구현
 
 * **Markdown 콘텐츠 처리 (`lib/notes-processor.ts`)**:
     * `vault/` 내 `.md` 파일들을 재귀적으로 탐색하여 frontmatter와 본문 내용을 파싱합니다 (`glob` v11.0.2 활용).
@@ -45,7 +45,7 @@
 * **전역 설정 (`site.config.js`)**:
     * 사이트 제목, 설명, URL, 기본 노트, UI 텍스트 등 주요 설정을 한 곳에서 관리합니다.
 
-## 🚀 시작하기
+## 시작하기
 
 1.  **저장소 복제 (Clone)**:
     ```bash
@@ -64,11 +64,11 @@
     ```
     브라우저에서 `http://localhost:3000`으로 접속하여 확인합니다. (Turbopack 사용)
 
-## 🌐 배포
+## 배포
 
 GitHub 저장소를 Vercel 또는 Netlify에 연결하여 정적 사이트로 손쉽게 배포할 수 있습니다. 이후 `main` (또는 기본) 브랜치에 Push 할 때마다 자동으로 사이트가 업데이트됩니다.
 
-## 📄 라이선스
+## 라이선스
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [MIT License](LICENSE.md)
