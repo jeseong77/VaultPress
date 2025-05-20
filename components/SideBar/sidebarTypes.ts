@@ -1,4 +1,3 @@
-// components/SideBar/sidebarTypes.ts
 // TreeNode
 export interface TreeNode {
   id: string;

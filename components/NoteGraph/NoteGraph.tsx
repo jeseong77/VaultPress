@@ -1,8 +1,8 @@
-"use client"; // 최상단에 위치해야 함
+"use client";
 
 import React, { useRef } from "react";
 import { useRouter } from "next/navigation";
-import * as d3 from "d3"; // d3.zoomIdentity 등을 위해 필요할 수 있음
+import * as d3 from "d3";
 import type {
   NoteGraphProps,
   D3ZoomTransform,

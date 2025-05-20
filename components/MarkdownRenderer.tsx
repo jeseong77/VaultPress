@@ -4,12 +4,14 @@ import ReactMarkdown, { type Components } from "react-markdown";
 import Link from "next/link";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
-import rehypeRaw from "rehype-raw";
+import rehypeRaw from "rehype-raw"; // rehypeRaw 사용 시 XSS 공격에 주의 (신뢰할 수 있는 콘텐츠에만 사용)
 import remarkWikiLink from "remark-wiki-link";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  ghcolors,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 
-// 코드 하이라이팅 언어
+// 코드 하이라이팅 언어 등록 (기존과 동일)
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
 import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
 import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
@@ -54,16 +56,33 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     code({ node, inline, className, children, ...props }: CustomCodeProps) {
       const match = /language-(\w+)/.exec(className || "");
       const language = match && match[1] ? match[1] : "text";
+      const content = String(children);
 
-      if (!inline) {
+      // 휴리스틱을 사용하여 인라인 코드인지 블록 코드인지 결정
+      // 1. 인라인 코드: inline prop이 true이거나
+      // 2. 블록 코드: content 길이가 80자 미만이고 줄바꿈이 없는 경우
+      const effectivelyInline =
+        inline || (content.length < 80 && !content.includes("\n"));
+
+      if (!effectivelyInline) {
         return (
           <SyntaxHighlighter
-            style={materialDark}
+            style={ghcolors}
             language={language}
-            PreTag="pre"
+            PreTag="div"
+            customStyle={{
+              margin: 0,
+              padding: 4,
+              backgroundColor: "transparent",
+              borderRadius: 4,
+              overflow: "auto",
+            }}
             {...props}
+            codeTagProps={{
+              style: { backgroundColor: "transparent" },
+            }}
           >
-            {String(children).replace(/\n$/, "")}
+            {content.replace(/\n$/, "")}
           </SyntaxHighlighter>
         );
       } else {
@@ -74,6 +93,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
         );
       }
     },
+    // 링크 컴포넌트
     a: ({ node, children, href, ...props }) => {
       if (href && href.startsWith("/?note=")) {
         const targetNoteId = href.substring("/?note=".length);
@@ -82,8 +102,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
           <Link
             href={href}
             {...restProps}
-            className={`internal-link ${anchorClassName || ""}`}
-            onClick={() => {
+            className={`internal-link ${anchorClassName || ""}`.trim()}
+            onClick={(e) => {
               if (onLinkClick) {
                 onLinkClick(targetNoteId);
               }
@@ -106,6 +126,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     },
   };
 
+  // 마크다운 콘텐츠가 비어있거나 null인 경우
   if (!markdownContent) {
     return (
       <p className="text-[var(--foreground-muted)] transition-colors duration-150 ease-in-out">
@@ -114,6 +135,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     );
   }
 
+  // 마크다운 콘텐츠가 비어있지 않은 경우
+  // ReactMarkdown을 사용하여 마크다운 콘텐츠를 렌더링
   return (
     <div className="prose dark:prose-invert max-w-4xl">
       <ReactMarkdown

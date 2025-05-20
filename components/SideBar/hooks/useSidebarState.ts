@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
 export const useSidebarState = (currentNodeId?: string) => {
-  // currentNodeId를 optional로 받음
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );

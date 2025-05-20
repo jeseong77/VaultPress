@@ -1,17 +1,15 @@
-// components/HomePageClient.tsx
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AppBar from "./AppBar";
-import LeftSidebar from "./SideBar/LeftSidebar"; // LeftSidebar 내부 링크 클릭 시 targetNoteId를 onLinkClick으로 전달해야 함
+import LeftSidebar from "./SideBar/LeftSidebar"; 
 import NoteGraph from "./NoteGraph/NoteGraph";
 import type { TreeNode } from "../lib/utils";
 import { filenameToSlug } from "../lib/utils";
 import type { ProcessedNode } from "../lib/notes-processor";
-import MarkdownRenderer from "./MarkdownRenderer"; // MarkdownRenderer의 onLinkClick prop 타입 변경 필요
+import MarkdownRenderer from "./MarkdownRenderer"; 
 
-// Updated SimpleSpinner with Framer Motion
 const SimpleSpinner = () => (
   <motion.div
     key="spinner"

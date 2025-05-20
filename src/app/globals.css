@@ -6,8 +6,8 @@
    ========================================================================== */
 /* 1. RIDIBatang 폰트 정의 */
 @font-face {
-  font-family: 'RIDIBatang'; /* 폰트 이름 정의 */
-  src: url('/assets/fonts/RIDIBatang.otf') format('opentype'); /* public 폴더 기준 경로 */
+  font-family: "RIDIBatang"; /* 폰트 이름 정의 */
+  src: url("/assets/fonts/RIDIBatang.otf") format("opentype"); /* public 폴더 기준 경로 */
   font-weight: normal; /* 기본 폰트 두께 */
   font-style: normal; /* 기본 폰트 스타일 */
 }
@@ -234,185 +234,183 @@ a:hover,
    3. Tailwind Typography (@tailwindcss/typography) 오버라이드 (.prose)
    ========================================================================== */
 
-   .prose {
-    font-family: 'RIDIBatang', Georgia, Cambria, "Times New Roman", Times, serif;
-    color: var(--foreground);
-    max-width: none; /* This was already in your .prose definition */
-  }
-  
-  /* --- Prose: 제목 --- */
-  .prose h1,
-  .prose h2,
-  .prose h3,
-  .prose h4,
-  .prose h5,
-  .prose h6 {
-    color: var(--foreground);
-    transition: color 150ms ease-in-out;
-  }
-  .prose h1 {
-    @apply text-3xl font-extrabold mb-6 mt-8;
-  }
-  .prose h2 {
-    @apply text-2xl font-bold mb-4 mt-6;
-  }
-  .prose h3 {
-    @apply text-xl font-semibold mb-3 mt-5;
-  }
-  .prose h4 {
-    @apply text-lg font-semibold mb-2 mt-4;
-  }
-  
-  /* --- Prose: 문단 --- */
-  .prose p {
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-  }
-  
-  /* --- Prose: 링크 --- */
-  .prose a,
-  .prose .internal-link {
-    color: var(--link-color);
-    text-decoration: underline;
-    transition: color 150ms ease-in-out;
-  }
-  .prose a:hover,
-  .prose .internal-link:hover {
-    color: var(--link-color-hover);
-  }
-  
-  /* --- Prose: 목록 (ul, ol, li) --- 최종 수정된 부분 --- */
-  .prose ul,
-  .prose ol {
-    list-style-position: outside; /* 마커를 텍스트 바깥쪽에 위치 */
-    padding-left: 1.75em;       /* 마커가 표시될 공간 (조절 가능) */
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  
-  .prose ul {
-    list-style-type: disc; /* 기본 불릿: 채워진 원 */
-  }
-  
-  .prose ol {
-    list-style-type: decimal; /* 기본 숫자 매기기 */
-  }
-  
-  .prose ul > li,
-  .prose ol > li {
-    padding-left: 0; /* li 내부 텍스트의 추가 들여쓰기 방지 */
-    margin-bottom: 0.5em;
-  }
-  
-  /* 마커 스타일 */
-  .prose ul > li::marker,
-  .prose ol > li::marker {
-    color: var(--foreground-muted);
-  }
-  
-  .prose ol > li::marker {
-    font-weight: 600;
-  }
-  
-  /* 중첩 목록 스타일 */
-  .prose ul ul,
-  .prose ul ol,
-  .prose ol ul,
-  .prose ol ol {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    padding-left: 1.75em; /* 중첩 목록 들여쓰기 */
-  }
-  
-  .prose ul ul {
-    list-style-type: circle; /* 2단계 ul: 빈 원 */
-  }
-  .prose ul ul ul {
-    list-style-type: square; /* 3단계 ul: 채워진 사각형 */
-  }
-  .prose ul ul ul ul { /* 4단계 ul: 필요시 추가 (예: 다시 disc 또는 다른 형태) */
-    list-style-type: disc; 
-  }
-  
-  
-  .prose ol ol {
-    list-style-type: lower-alpha; /* 2단계 ol: a, b, c */
-  }
-  .prose ol ol ol {
-    list-style-type: lower-roman; /* 3단계 ol: i, ii, iii */
-  }
-  .prose ol ol ol ol { /* 4단계 ol: 필요시 추가 */
-    list-style-type: lower-greek;
-  }
-  
-  
-  /* 목록 항목 내 <p> 태그 처리 */
-  .prose li > p {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .prose li > p + p { /* 한 li 내에 여러 <p>가 있을 경우 */
-    margin-top: 0.5em;
-  }
-  /* --- 목록 스타일 수정 끝 --- */
-  
-  
-  /* --- Prose: 작업 목록 (Task List) --- */
-  .prose ul > li.task-list-item, /* Ensure specificity or that general ul/li rules don't break this */
+.prose {
+  font-family: "RIDIBatang", Georgia, Cambria, "Times New Roman", Times, serif;
+  color: var(--foreground);
+  max-width: none; /* This was already in your .prose definition */
+}
+
+/* --- Prose: 제목 --- */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--foreground);
+  transition: color 150ms ease-in-out;
+}
+.prose h1 {
+  @apply text-3xl font-extrabold mb-6 mt-8;
+}
+.prose h2 {
+  @apply text-2xl font-bold mb-4 mt-6;
+}
+.prose h3 {
+  @apply text-xl font-semibold mb-3 mt-5;
+}
+.prose h4 {
+  @apply text-lg font-semibold mb-2 mt-4;
+}
+
+/* --- Prose: 문단 --- */
+.prose p {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* --- Prose: 링크 --- */
+.prose a,
+.prose .internal-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  transition: color 150ms ease-in-out;
+}
+.prose a:hover,
+.prose .internal-link:hover {
+  color: var(--link-color-hover);
+}
+
+/* --- Prose: 목록 (ul, ol, li) --- 최종 수정된 부분 --- */
+.prose ul,
+.prose ol {
+  list-style-position: outside; /* 마커를 텍스트 바깥쪽에 위치 */
+  padding-left: 1.75em; /* 마커가 표시될 공간 (조절 가능) */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose ul {
+  list-style-type: disc; /* 기본 불릿: 채워진 원 */
+}
+
+.prose ol {
+  list-style-type: decimal; /* 기본 숫자 매기기 */
+}
+
+.prose ul > li,
+.prose ol > li {
+  padding-left: 0; /* li 내부 텍스트의 추가 들여쓰기 방지 */
+  margin-bottom: 0.5em;
+}
+
+/* 마커 스타일 */
+.prose ul > li::marker,
+.prose ol > li::marker {
+  color: var(--foreground-muted);
+}
+
+.prose ol > li::marker {
+  font-weight: 600;
+}
+
+/* 중첩 목록 스타일 */
+.prose ul ul,
+.prose ul ol,
+.prose ol ul,
+.prose ol ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.75em; /* 중첩 목록 들여쓰기 */
+}
+
+.prose ul ul {
+  list-style-type: circle; /* 2단계 ul: 빈 원 */
+}
+.prose ul ul ul {
+  list-style-type: square; /* 3단계 ul: 채워진 사각형 */
+}
+.prose ul ul ul ul {
+  /* 4단계 ul: 필요시 추가 (예: 다시 disc 또는 다른 형태) */
+  list-style-type: disc;
+}
+
+.prose ol ol {
+  list-style-type: lower-alpha; /* 2단계 ol: a, b, c */
+}
+.prose ol ol ol {
+  list-style-type: lower-roman; /* 3단계 ol: i, ii, iii */
+}
+.prose ol ol ol ol {
+  /* 4단계 ol: 필요시 추가 */
+  list-style-type: lower-greek;
+}
+
+/* 목록 항목 내 <p> 태그 처리 */
+.prose li > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.prose li > p + p {
+  /* 한 li 내에 여러 <p>가 있을 경우 */
+  margin-top: 0.5em;
+}
+/* --- 목록 스타일 수정 끝 --- */
+
+/* --- Prose: 작업 목록 (Task List) --- */
+.prose ul > li.task-list-item, /* Ensure specificity or that general ul/li rules don't break this */
   .prose ol > li.task-list-item {
-    list-style-type: none !important; /* !important to ensure it overrides general ul/li if needed */
-    padding-left: 0.25em; /* Adjust as needed for checkbox alignment */
-    /* Other task list item specific styles */
-  }
-  .prose li > input[type="checkbox"] { /* This selector is fine */
-    @apply mr-2 align-middle cursor-default;
-    width: 1.1em;
-    height: 1.1em;
-    margin-top: 0.15em; /* This might need adjustment based on line-height */
-    accent-color: var(--primary-light);
-  }
-  .dark .prose li > input[type="checkbox"] {
-    accent-color: var(--primary-dark);
-  }
-  .prose li > input[type="checkbox"]:disabled {
-    opacity: 0.7;
-  }
-  
-  /* --- Prose: 코드 (pre, code) --- */
-  .prose pre {
-    @apply p-4 rounded-md overflow-x-auto my-6 text-sm;
-    background-color: var(--code-background);
-    border: 1px solid var(--border-color);
-    transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
-  }
-  
-  .prose pre code {
-    display: block; 
-    font-family: theme(
-      "fontFamily.mono",
-      "ui-monospace",
-      "SFMono-Regular",
-      "Menlo",
-      "Monaco",
-      "Consolas",
-      "Liberation Mono",
-      "Courier New",
-      "monospace"
-    );
-    line-height: 1.5;
-    background-color: transparent !important; /* Important to override syntax highlighter's potential bg */
-    color: inherit; /* Inherit color from .prose pre or syntax highlighter */
-    white-space: pre;
-    padding: 0; /* Reset padding if SyntaxHighlighter adds its own within the pre */
-    margin: 0; /* Reset margin */
-  }
-  
-  .prose :not(pre) > code {
-    @apply px-1.5 py-0.5 rounded-md text-sm font-mono;
-    background-color: var(--inline-code-background);
-    color: var(--inline-code-foreground);
-    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
-  }
+  list-style-type: none !important; /* !important to ensure it overrides general ul/li if needed */
+  padding-left: 0.25em; /* Adjust as needed for checkbox alignment */
+  /* Other task list item specific styles */
+}
+.prose li > input[type="checkbox"] {
+  /* This selector is fine */
+  @apply mr-2 align-middle cursor-default;
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: 0.15em; /* This might need adjustment based on line-height */
+  accent-color: var(--primary-light);
+}
+.dark .prose li > input[type="checkbox"] {
+  accent-color: var(--primary-dark);
+}
+.prose li > input[type="checkbox"]:disabled {
+  opacity: 0.7;
+}
+
+/* --- Prose: 코드 (pre, code) --- */
+.prose pre {
+  @apply rounded-md overflow-x-auto my-6 text-sm;
+  background-color: var(--code-background);
+  border: 1px solid var(--border-color);
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+
+.prose pre code {
+  display: block;
+  font-family: "fontFamily.mono", "ui-monospace", "SFMono-Regular", "Menlo",
+    "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
+  line-height: 1.5;
+  color: inherit;
+  white-space: pre;
+  padding: 16;
+  margin: 0;
+}
+
+/* --- 인라인 코드 스타일 수정 --- */
+.prose :not(pre) > code {
+  display: inline;
+  font-family: "fontFamily.mono", "ui-monospace", "SFMono-Regular", "Menlo",
+    "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
+  @apply text-sm; /* 코드 블록과 동일한 폰트 크기 */
+
+  background-color: var(--code-background); /* 코드 블록과 동일한 배경색 사용 */
+  color: var(--inline-code-foreground);
+
+  padding: 0.2em 0.4em; /* 안쪽 여백 조절 (기존 값 유지 또는 미세 조정) */
+  border-radius: 0.25em; /* 약간의 둥근 모서리 (예: 3px 또는 4px 정도의 느낌) */
+}
 
 /* ==========================================================================
    4. 컴포넌트별 전역 스타일

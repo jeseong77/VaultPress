@@ -1,4 +1,3 @@
-// app/page.tsx
 import HomePageClient from "../../components/HomePageClient";
 import {
   buildGraphDataForRender,
@@ -137,6 +136,7 @@ export default async function HomePageWrapper({
   const treeData = buildFileTree(allNotesForTree);
   const { notesMapByFullPathSlug, notesMapBySimpleSlug } = await getNoteSlugMaps();
 
+  // 메인 렌더링
   return (
     <HomePageClient
       initialNodes={graphNodes}
