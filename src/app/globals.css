@@ -368,19 +368,17 @@ a:hover,
 /* --- Prose: 코드 (pre, code) --- */
 .prose pre {
   @apply rounded-md overflow-x-auto my-6 text-sm;
-  background-color: var(--code-background);
-  border: 1px solid var(--border-color);
-  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
 }
 
 .prose pre code {
   display: block;
+  @apply text-sm;
   font-family: "fontFamily.mono", "ui-monospace", "SFMono-Regular", "Menlo",
     "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
   line-height: 1.5;
   color: inherit;
   white-space: pre;
-  padding: 16;
   margin: 0;
 }
 
