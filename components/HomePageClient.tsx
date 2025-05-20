@@ -174,7 +174,7 @@ export default function HomePageClient({
         />
       </div>
 
-      <main className="flex-1 flex flex-col pt-16 md:pt-0 h-full relative">
+      <main className="flex-1 flex flex-col pt-16 md:pt-0 relative">
         <motion.div
           layout
           className={`bg-[var(--card-background)] text-[var(--foreground)] md:rounded-lg 
