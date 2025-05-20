@@ -3,12 +3,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AppBar from "./AppBar";
-import LeftSidebar from "./SideBar/LeftSidebar"; 
+import LeftSidebar from "./SideBar/LeftSidebar";
 import NoteGraph from "./NoteGraph/NoteGraph";
 import type { TreeNode } from "../lib/utils";
 import { filenameToSlug } from "../lib/utils";
 import type { ProcessedNode } from "../lib/notes-processor";
-import MarkdownRenderer from "./MarkdownRenderer"; 
+import MarkdownRenderer from "./MarkdownRenderer";
 
 const SimpleSpinner = () => (
   <motion.div
@@ -174,7 +174,7 @@ export default function HomePageClient({
         />
       </div>
 
-      <main className="flex-1 flex flex-col pt-16 md:pt-0 h-full overflow-y-auto relative">
+      <main className="flex-1 flex flex-col pt-16 md:pt-0 h-full relative">
         <motion.div
           layout
           className={`bg-[var(--card-background)] text-[var(--foreground)] md:rounded-lg 
